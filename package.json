@@ -16,6 +16,7 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
+    "test:tsc": "tsc -p tsconfig.test.json -w",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
