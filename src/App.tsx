@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Hero from './Components/Hero/Hero';
 import Content from './Components/Content/Content';
+import About from './Components/About/About';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       </header>
       <body>
         <section className='Content'>
+          <About />
           <Content />
         </section>
       </body>
