@@ -1,6 +1,16 @@
 const Data = {
   fetchTwitterFollows() {
-    return { test: 123 };
+    return fetch(
+      `https://api.twitter.com/1.1/users/show.json?user_id=736007630`,
+      {
+        method: 'GET',
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    ).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
   fetchYoutubeSubs() {
     return { test: 456 };
@@ -14,3 +24,5 @@ const Data = {
 };
 
 export default Data;
+
+// https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCo1ij-x1EG4hLXc_YY6snoQ%7D&key=AIzaSyCEuHdMDSi2ChxwUCUVQ4YBThh8-bWpsN4
