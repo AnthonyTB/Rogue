@@ -1,11 +1,11 @@
 import React from 'react';
 import './Hero.css';
-import Data from '../../Helper/Data';
+import HeroBranding from '../../Assets/Logo.png';
 
 function Hero() {
   return (
     <>
-      <h1>Hero</h1>
+      <img src={HeroBranding} className='Hero-Branding' alt='Rogue Branding' />
     </>
   );
 }
