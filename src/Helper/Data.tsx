@@ -1,22 +1,60 @@
+import config from '../config';
+
 const Data = {
-  fetchTwitterFollows() {
-    return fetch(
-      `https://api.twitter.com/1.1/users/show.json?user_id=736007630`,
-      {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-        },
-      }
-    ).then((res) =>
+  fetchTwitterData() {
+    return fetch(`${config.Proxy}${config.TwitterEndpoint}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${config.TwitterToken}`,
+      },
+    }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
   fetchYoutubeSubs() {
-    return { test: 456 };
+    return fetch(`${config.YoutubeSubsEndpoint}${config.YoutubeToken}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+    }).then((res) =>
+      !res.ok
+        ? res.json().then((e) => Promise.reject(e))
+        : res.json().then((response) => response.items[0])
+    );
+  },
+  fetchYoutubeUpload() {
+    return fetch(`${config.YoutubeUploadEndpoint}${config.YoutubeToken}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
   fetchTwitchData() {
-    return { Live: 'Live' };
+    return fetch(`${config.TwitchEndpoint}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${config.TwitchToken}`,
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  fetchTwitchStream() {
+    return fetch(`${config.TwitchStreamEndpoint}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${config.TwitchToken}`,
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
   fetchApex() {
     return { test: 789 };
@@ -24,5 +62,3 @@ const Data = {
 };
 
 export default Data;
-
-// https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCo1ij-x1EG4hLXc_YY6snoQ%7D&key=AIzaSyCEuHdMDSi2ChxwUCUVQ4YBThh8-bWpsN4

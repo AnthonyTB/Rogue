@@ -1,27 +1,38 @@
 import React, { useContext } from 'react';
 import './Content.css';
-import { ResponseObject } from '../interfaces/interfaces';
 import { Context } from '../Context/Context';
 
 function Content() {
-  const { twitchData } = useContext(Context);
+  const { twitchStream, youtubeUpload } = useContext(Context);
+
+  const renderLiveStream = () => {
+    return (
+      <iframe
+        src={`https://player.twitch.tv/?channel=rogue&muted=true&autoplay=true`}
+        allowFullScreen={true}
+        frameBorder='0'
+        scrolling='no'
+      />
+    );
+  };
+
+  const renderPastBroadcast = () => {
+    return 'hi';
+  };
 
   return (
     <>
-      <h3>Catch Me Live</h3>
-      {twitchData ? (
-        twitchData.Live === 'Live' ? (
-          ''
-        ) : (
-          <span>
-            Looks Like I'm not currently live so checkout my one of my recent
-            broadcast
-          </span>
-        )
-      ) : (
-        ''
-      )}
-      <h3>Recent Upload</h3>
+      <section className='Twitch'>
+        <h3>Watch Me Live</h3>
+        <hr className='underline' />
+        {twitchStream.data[0].type === 'lve'
+          ? renderLiveStream()
+          : renderPastBroadcast()}
+      </section>
+      <section className='YouTube'>
+        <h3>Recent Upload</h3>
+        <hr className='underline' />
+      </section>
     </>
   );
 }

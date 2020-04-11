@@ -6,20 +6,30 @@ export const Context = createContext();
 export function ContextProvider(props) {
   const Reducer = (prevState, { type, payload }) => {
     switch (type) {
-      case 'twitterFollowers':
+      case 'twitterData':
         return {
           ...prevState,
-          twitterFollowers: payload.twitterFollowers,
+          twitterData: payload.twitterData,
         };
       case 'twitchData':
         return {
           ...prevState,
           twitchData: payload.twitchData,
         };
+      case 'twitchStream':
+        return {
+          ...prevState,
+          twitchStream: payload.twitchStream,
+        };
       case 'youtubeSubscribers':
         return {
           ...prevState,
           youtubeSubscribers: payload.youtubeSubscribers,
+        };
+      case 'youtubeUpload':
+        return {
+          ...prevState,
+          youtubeUpload: payload.youtubeUpload,
         };
       case 'apexStats':
         return {
@@ -27,14 +37,16 @@ export function ContextProvider(props) {
           apexStats: payload.apexStats,
         };
       default:
-        return 'hi';
+        return '';
     }
   };
 
   const [state, dispatch] = useReducer(Reducer, {
-    twitterFollowers: null,
+    twitterData: null,
     twitchData: null,
+    twitchStream: null,
     youtubeSubscribers: null,
+    youtubeUpload: null,
     apexStats: null,
   });
 
@@ -49,16 +61,24 @@ export function ContextProvider(props) {
 
   useEffect(() => {
     const fetchTwitter = async () => {
-      const twitterResponse = await Data.fetchTwitterFollows();
-      dataSetter('twitterFollowers', twitterResponse);
+      const twitterResponse = await Data.fetchTwitterData();
+      dataSetter('twitterData', twitterResponse);
     };
     const fetchTwitch = async () => {
       const twitchResponse = await Data.fetchTwitchData();
       dataSetter('twitchData', twitchResponse);
     };
+    const fetchTwitchStream = async () => {
+      const twitchResponse = await Data.fetchTwitchStream();
+      dataSetter('twitchStream', twitchResponse);
+    };
     const fetchYoutube = async () => {
       const youtubeResponse = await Data.fetchYoutubeSubs();
       dataSetter('youtubeSubscribers', youtubeResponse);
+    };
+    const fetchYoutubeUpload = async () => {
+      const youtubeResponse2 = await Data.fetchYoutubeUpload();
+      dataSetter('youtubeUpload', youtubeResponse2);
     };
     const fetchApex = async () => {
       const apexResponse = await Data.fetchApex();
@@ -66,15 +86,19 @@ export function ContextProvider(props) {
     };
     fetchTwitter();
     fetchTwitch();
+    fetchTwitchStream();
     fetchYoutube();
+    fetchYoutubeUpload();
     fetchApex();
   }, []);
 
   const value = {
     dispatch,
-    twitterFollowers: state.twitterFollowers,
+    twitterData: state.twitterData,
     twitchData: state.twitchData,
+    twitchStream: state.twitchStream,
     youtubeSubscribers: state.youtubeSubscribers,
+    youtubeUpload: state.youtubeUpload,
     apexStats: state.apexStats,
   };
 
