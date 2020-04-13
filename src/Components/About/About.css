@@ -1,0 +1,151 @@
+.Data ul {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.Data ul li {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+  margin: 20px;
+  list-style: none;
+  height: 300px;
+  width: 250px;
+  border-radius: 15px;
+  padding: 0;
+  position: relative;
+  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.5);
+}
+
+.Data ul li i {
+  color: rgba(255, 255, 255, 0.05);
+  font-size: 200px;
+  float: right;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 0;
+}
+
+.Data ul li h5 {
+  color: #fff;
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.Data ul li span {
+  font-family: titling-gothic-fb, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+  font-size: 30px;
+}
+
+.Data ul li button {
+  display: block;
+  margin: auto auto;
+  margin-top: 50px;
+  background: #ece9e6;
+  background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
+  background: linear-gradient(to right, #ffffff, #ece9e6);
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  box-shadow: 0px 11px 21px -4px rgba(0, 0, 0, 0.5);
+}
+
+.Data ul li button a {
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.Data .Twitter {
+  background: #00c6ff;
+  background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+.Data .Twitter button a {
+  color: #0072ff;
+}
+
+.Data .Twitter .group {
+  margin-top: 5px;
+}
+
+.Data .Twitch {
+  background: #6441a5;
+  background: -webkit-linear-gradient(to right, #2a0845, #6441a5);
+  background: linear-gradient(to right, #2a0845, #6441a5);
+}
+
+.Data .Twitch button a {
+  color: #6441a5;
+}
+
+.Data .Youtube {
+  background: #e52d27;
+  background: -webkit-linear-gradient(to right, #b31217, #e52d27);
+  background: linear-gradient(to right, #b31217, #e52d27);
+}
+
+.Data .Youtube button a {
+  color: #b31217;
+}
+
+.Data .Instagram {
+  background: #f09433;
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
+.Data .Instagram button a {
+  color: #833ab4;
+}

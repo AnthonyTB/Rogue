@@ -4,16 +4,30 @@ import Hero from './Components/Hero/Hero';
 import Content from './Components/Content/Content';
 import About from './Components/About/About';
 import { Context } from './Components/Context/Context';
+import { css } from '@emotion/core';
+import GridLoader from 'react-spinners/GridLoader';
 
 function App() {
   const {
     twitchStream,
-    youtubeData,
     youtubeSubscribers,
     twitchData,
     twitterData,
-    apexStats,
+    instagramStats,
   } = useContext(Context);
+
+  const override = css`
+    display: block;
+    margin: 0 auto;
+  `;
+
+  const renderLoader = () => {
+    return (
+      <div className='Loader'>
+        <GridLoader css={override} size={25} color={'#000000'} loading={true} />
+      </div>
+    );
+  };
 
   const renderApp = () => {
     return (
@@ -33,11 +47,13 @@ function App() {
 
   return (
     <div className='App'>
-      {twitchStream && twitchData && twitterData && youtubeSubscribers ? (
-        renderApp()
-      ) : (
-        <h3>Loading...</h3>
-      )}
+      {twitchStream &&
+      twitchData &&
+      twitterData &&
+      youtubeSubscribers &&
+      instagramStats
+        ? renderApp()
+        : renderLoader()}
     </div>
   );
 }

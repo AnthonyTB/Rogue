@@ -24,16 +24,6 @@ const Data = {
         : res.json().then((response) => response.items[0])
     );
   },
-  fetchYoutubeUpload() {
-    return fetch(`${config.YoutubeUploadEndpoint}${config.YoutubeToken}`, {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      },
-    }).then((res) =>
-      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
-    );
-  },
   fetchTwitchData() {
     return fetch(`${config.TwitchEndpoint}`, {
       method: 'GET',
@@ -56,8 +46,12 @@ const Data = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  fetchApex() {
-    return { test: 789 };
+  fetchInstagramData() {
+    return fetch(`${config.InstagramEndpoint}`, {
+      method: 'GET',
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
 };
 

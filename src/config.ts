@@ -2,11 +2,10 @@ export default {
   TwitterToken: process.env.REACT_APP_TwitterToken,
   YoutubeToken: process.env.REACT_APP_YoutubeToken,
   TwitchToken: process.env.REACT_APP_TwitchToken,
-  Proxy: 'https://cors-anywhere.herokuapp.com/',
+  Proxy: 'https://radiant-chamber-62870.herokuapp.com/',
   TwitterEndpoint:
     'https://api.twitter.com/1.1/users/show.json?user_id=736007630',
-  ApexEndpoint:
-    'https://public-api.tracker.gg/apex/v1/standard/profile/5/Rogurat',
+  InstagramEndpoint: 'https://www.instagram.com/twitchrogue/?__a=1',
   TwitchEndpoint: 'https://api.twitch.tv/helix/users?id=64581694',
   TwitchStreamEndpoint: 'https://api.twitch.tv/helix/streams?user_id=64581694',
   YoutubeSubsEndpoint:

@@ -26,15 +26,11 @@ export function ContextProvider(props) {
           ...prevState,
           youtubeSubscribers: payload.youtubeSubscribers,
         };
-      case 'youtubeUpload':
+
+      case 'instagramStats':
         return {
           ...prevState,
-          youtubeUpload: payload.youtubeUpload,
-        };
-      case 'apexStats':
-        return {
-          ...prevState,
-          apexStats: payload.apexStats,
+          instagramStats: payload.instagramStats,
         };
       default:
         return '';
@@ -46,8 +42,7 @@ export function ContextProvider(props) {
     twitchData: null,
     twitchStream: null,
     youtubeSubscribers: null,
-    youtubeUpload: null,
-    apexStats: null,
+    instagramStats: null,
   });
 
   const dataSetter = (section, data) => {
@@ -76,20 +71,15 @@ export function ContextProvider(props) {
       const youtubeResponse = await Data.fetchYoutubeSubs();
       dataSetter('youtubeSubscribers', youtubeResponse);
     };
-    const fetchYoutubeUpload = async () => {
-      const youtubeResponse2 = await Data.fetchYoutubeUpload();
-      dataSetter('youtubeUpload', youtubeResponse2);
-    };
-    const fetchApex = async () => {
-      const apexResponse = await Data.fetchApex();
-      dataSetter('apexStats', apexResponse);
+    const fetchInstagram = async () => {
+      const instagramResponse = await Data.fetchInstagramData();
+      dataSetter('instagramStats', instagramResponse);
     };
     fetchTwitter();
     fetchTwitch();
     fetchTwitchStream();
     fetchYoutube();
-    fetchYoutubeUpload();
-    fetchApex();
+    fetchInstagram();
   }, []);
 
   const value = {
@@ -99,7 +89,7 @@ export function ContextProvider(props) {
     twitchStream: state.twitchStream,
     youtubeSubscribers: state.youtubeSubscribers,
     youtubeUpload: state.youtubeUpload,
-    apexStats: state.apexStats,
+    instagramStats: state.instagramStats,
   };
 
   return <Context.Provider value={value}>{props.children}</Context.Provider>;
