@@ -145,12 +145,11 @@ function About() {
   return (
     <>
       <Animated
-        animationIn='fadeInUp'
-        animationOut='fadeOutUp'
-        animationInDelay={1000}
+        animationIn='fadeIn'
+        animationOut='fadeOut'
+        animationInDelay={1300}
         animationOutDelay={800}
         isVisible={true}
-        animateOnMount={true}
       >
         <div className='Data'>
           <ul>
@@ -158,9 +157,8 @@ function About() {
               <i className='fab fa-twitter'></i>
               <div className='group'>
                 <h5>{twitterData.screen_name}</h5>
-                <span className='Follower-Count'>
-                  {formatCount(state.twitterCount)}
-                </span>
+                <span className='Count'>{formatCount(state.twitterCount)}</span>
+                <span className='description'>followers</span>
               </div>
               <button type='button'>
                 <a href='https://twitter.com/TTrebb' target='blank_'>
@@ -171,9 +169,8 @@ function About() {
             <li className='Twitch'>
               <i className='fab fa-twitch'></i>
               <h5>{twitchData.data[0].display_name}</h5>
-              <span className='Views-Count'>
-                {formatCount(state.twitchCount)}
-              </span>
+              <span className='Count'>{formatCount(state.twitchCount)}</span>
+              <span className='description'>views</span>
               <button type='button'>
                 <a href='https://www.twitch.tv/rogue/' target='blank_'>
                   subscribe
@@ -183,9 +180,8 @@ function About() {
             <li className='Youtube'>
               <i className='fab fa-youtube'></i>
               <h5>Rogue</h5>
-              <span className='Subscriber-Count'>
-                {formatCount(state.youtubeCount)}
-              </span>
+              <span className='Count'>{formatCount(state.youtubeCount)}</span>
+              <span className='description'>subscribers</span>
               <button type='button'>
                 <a
                   href='https://www.youtube.com/channel/UCo1ij-x1EG4hLXc_YY6snoQ'
@@ -198,9 +194,8 @@ function About() {
             <li className='Instagram'>
               <i className='fab fa-instagram'></i>
               <h5>TwitchRogue</h5>
-              <span className='Instagram-Count'>
-                {formatCount(state.instagramCount)}
-              </span>
+              <span className='Count'>{formatCount(state.instagramCount)}</span>
+              <span className='description'>followers</span>
               <button type='button'>
                 <a
                   href='https://www.instagram.com/twitchrogue/'

@@ -46,6 +46,17 @@ const Data = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  fetchTwitchVod() {
+    return fetch(`${config.TwitchVodEndpoint}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Client-ID': '0kecjpe20pt63ts9he0gnlhdb8h8ey',
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
   fetchInstagramData() {
     return fetch(`${config.InstagramEndpoint}`, {
       method: 'GET',

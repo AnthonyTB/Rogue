@@ -1,11 +1,24 @@
 import React from 'react';
 import './Hero.css';
 import HeroBranding from '../../Assets/Logo.png';
+import { Animated } from 'react-animated-css';
 
 function Hero() {
   return (
     <>
-      <img src={HeroBranding} className='Hero-Branding' alt='Rogue Branding' />
+      <Animated
+        animationIn='fadeIn'
+        animationOut='fadeOut'
+        animationInDelay={900}
+        animationOutDelay={800}
+        isVisible={true}
+      >
+        <img
+          src={HeroBranding}
+          className='Hero-Branding'
+          alt='Rogue Branding'
+        />
+      </Animated>
     </>
   );
 }

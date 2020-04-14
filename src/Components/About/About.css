@@ -50,7 +50,9 @@
 }
 
 .Data ul li h5 {
+  font-family: 'Trade Winds', cursive;
   color: #fff;
+  font-weight: 100;
   font-size: 35px;
   margin-bottom: 15px;
 }
@@ -60,7 +62,7 @@
   font-weight: 400;
   font-style: normal;
   color: #fff;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .Data ul li button {
@@ -81,6 +83,18 @@
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
+}
+
+.Data .Twitter i {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.Data .Youtube i {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.Data .Instagram i {
+  color: rgba(255, 255, 255, 0.15);
 }
 
 .Data .Twitter {
@@ -148,4 +162,12 @@
 
 .Data .Instagram button a {
   color: #833ab4;
+}
+
+.Data .description {
+  text-transform: uppercase;
+  font-size: 10px;
+  display: block;
+  margin-top: 10px;
+  color: lightgray;
 }
