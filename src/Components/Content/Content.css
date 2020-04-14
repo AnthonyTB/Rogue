@@ -23,24 +23,27 @@
 }
 
 .Twitch-Container {
-  height: auto;
+  height: 149px;
   width: 265px;
   margin: auto auto;
   box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
+  -webkit-border-radius: 15px;
 }
 
 .Twitch-Container iframe {
   border-radius: 15px;
+  -webkit-border-radius: 15px;
 }
 
 .Youtube-Container {
-  height: auto;
+  height: 149px;
   width: 265px;
   margin: auto auto;
   margin-bottom: 30px;
   box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
+  -webkit-border-radius: 15px;
 }
 
 .Youtube .Container-Left .underline {
@@ -64,6 +67,7 @@
 
 .Youtube-Container iframe {
   border-radius: 15px;
+  -webkit-border-radius: 15px;
 }
 
 .Youtube .Container-Left h3 {
@@ -118,10 +122,12 @@
 @media only screen and (min-width: 1200px) {
   .Twitch .Container-Right h3 {
     margin-right: 30px;
+    font-size: 50px;
   }
 
   .Youtube .Container-Left h3 {
     margin-left: 30px;
+    font-size: 50px;
   }
 
   .Twitch .Container-Right {
@@ -132,5 +138,17 @@
   .Youtube .Container-Left {
     margin-bottom: 50px;
     margin-top: 50px;
+  }
+
+  .Twitch-Container {
+    height: 371px;
+    width: 660px;
+  }
+
+  .Youtube-Container {
+    height: 371px;
+    width: 660px;
+    margin-bottom: 70px;
+    border-radius: 15px;
   }
 }

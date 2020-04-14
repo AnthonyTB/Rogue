@@ -18,6 +18,7 @@ function Hero() {
           className='Hero-Branding'
           alt='Rogue Branding'
         />
+        <div className='scrolldown'></div>
       </Animated>
     </>
   );

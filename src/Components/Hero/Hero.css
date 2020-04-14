@@ -2,3 +2,59 @@
   height: 100%;
   width: 200px;
 }
+
+.scrolldown {
+  width: 24px;
+  height: 24px;
+  margin: auto auto;
+  margin-top: 200px;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sd 1.5s infinite;
+  animation: sd 1.5s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sd {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+@keyframes sd {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .scrolldown {
+    margin-top: 400px;
+  }
+
+  .Hero-Branding {
+    width: 300px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Hero-Branding {
+    width: 400px;
+  }
+}

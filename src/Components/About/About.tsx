@@ -162,7 +162,7 @@ function About() {
               </div>
               <button type='button'>
                 <a href='https://twitter.com/TTrebb' target='blank_'>
-                  follow me
+                  follow
                 </a>
               </button>
             </li>
@@ -201,7 +201,7 @@ function About() {
                   href='https://www.instagram.com/twitchrogue/'
                   target='blank_'
                 >
-                  follow me
+                  follow
                 </a>
               </button>
             </li>
