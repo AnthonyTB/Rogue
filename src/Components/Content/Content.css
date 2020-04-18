@@ -23,8 +23,8 @@
 }
 
 .Twitch-Container {
-  height: 149px;
-  width: 265px;
+  height: 155px;
+  width: 275px;
   margin: auto auto;
   box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
@@ -37,8 +37,8 @@
 }
 
 .Youtube-Container {
-  height: 149px;
-  width: 265px;
+  height: 155px;
+  width: 275px;
   margin: auto auto;
   margin-bottom: 30px;
   box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.5);
@@ -86,6 +86,18 @@
     height: 262px;
     width: 465px;
     margin-bottom: 50px;
+  }
+
+  .Twitch .Container-Right h3 {
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+  }
+
+  .Youtube .Container-Left h3 {
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-left: 10px;
   }
 }
 

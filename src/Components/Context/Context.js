@@ -26,6 +26,11 @@ export function ContextProvider(props) {
           ...prevState,
           twitchVod: payload.twitchVod,
         };
+      case 'twitchFollowers':
+        return {
+          ...prevState,
+          twitchFollowers: payload.twitchFollowers,
+        };
       case 'youtubeSubscribers':
         return {
           ...prevState,
@@ -46,6 +51,7 @@ export function ContextProvider(props) {
     twitterData: null,
     twitchData: null,
     twitchVod: null,
+    twitchFollowers: null,
     twitchStream: null,
     youtubeSubscribers: null,
     instagramStats: null,
@@ -77,6 +83,10 @@ export function ContextProvider(props) {
       const twitchResponse = await Data.fetchTwitchVod();
       dataSetter('twitchVod', twitchResponse);
     };
+    const fetchTwitchFollowers = async () => {
+      const twitchResponse = await Data.fetchTwitchFollowers();
+      dataSetter('twitchFollowers', twitchResponse);
+    };
     const fetchYoutube = async () => {
       const youtubeResponse = await Data.fetchYoutubeSubs();
       dataSetter('youtubeSubscribers', youtubeResponse);
@@ -89,6 +99,7 @@ export function ContextProvider(props) {
     fetchTwitch();
     fetchTwitchStream();
     fetchTwitchVod();
+    fetchTwitchFollowers();
     fetchYoutube();
     fetchInstagram();
   }, []);
@@ -99,6 +110,7 @@ export function ContextProvider(props) {
     twitchData: state.twitchData,
     twitchStream: state.twitchStream,
     twitchVod: state.twitchVod,
+    twitchFollowers: state.twitchFollowers,
     youtubeSubscribers: state.youtubeSubscribers,
     youtubeUpload: state.youtubeUpload,
     instagramStats: state.instagramStats,

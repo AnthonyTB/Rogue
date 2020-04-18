@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import './Content.css';
 import { Context } from '../Context/Context';
-import { Animated } from 'react-animated-css';
 
 function Content() {
   const { twitchStream, twitchVod } = useContext(Context);
@@ -57,53 +56,20 @@ function Content() {
   return (
     <>
       <section className='Twitch'>
-        <Animated
-          animationIn='fadeInRight'
-          animationOut='fadeOutRight'
-          animationInDelay={1300}
-          animationOutDelay={800}
-          isVisible={true}
-        >
-          <div className='Container-Right'>
-            {liveStatus ? <h3>Watch Me Live</h3> : <h3>Watch Last Stream</h3>}
-            <hr className='underline' />
-          </div>
-        </Animated>
-        <Animated
-          animationIn='fadeIn'
-          animationOut='fadeOut'
-          animationInDelay={1300}
-          animationOutDelay={800}
-          isVisible={true}
-        >
-          <div className='Container-Left'>
-            {liveStatus ? renderLiveStream() : renderPastBroadcast()}
-          </div>
-        </Animated>
+        <div className='Container-Right'>
+          {liveStatus ? <h3>Watch Me Live</h3> : <h3>Watch Last Stream</h3>}
+          <hr className='underline' />
+        </div>
+        <div className='Container-Left'>
+          {liveStatus ? renderLiveStream() : renderPastBroadcast()}
+        </div>
       </section>
       <section className='Youtube'>
-        <Animated
-          animationIn='fadeInLeft'
-          animationOut='fadeOutLeft'
-          animationInDelay={1300}
-          animationOutDelay={800}
-          isVisible={true}
-        >
-          <div className='Container-Left'>
-            <h3>Recent Upload</h3>
-            <hr className='underline' />
-          </div>
-        </Animated>
-
-        <Animated
-          animationIn='fadeIn'
-          animationOut='fadeOut'
-          animationInDelay={1300}
-          animationOutDelay={800}
-          isVisible={true}
-        >
-          <div className='Container-Right'>{renderYoutubeUploads()}</div>
-        </Animated>
+        <div className='Container-Left'>
+          <h3>Recent Upload</h3>
+          <hr className='underline' />
+        </div>
+        <div className='Container-Right'>{renderYoutubeUploads()}</div>
       </section>
     </>
   );

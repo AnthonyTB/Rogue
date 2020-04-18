@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useReducer, useCallback } from 'react';
 import './About.css';
 import { Context } from '../Context/Context';
 import { Reducer } from '../interfaces/interfaces';
-import { Animated } from 'react-animated-css';
 
 function About() {
   const {
     twitterData,
     twitchData,
+    twitchFollowers,
     youtubeSubscribers,
     instagramStats,
   } = useContext(Context);
@@ -19,10 +19,15 @@ function About() {
           ...prevState,
           twitterCount: payload.twitterCount,
         };
-      case 'twitchCount':
+      // case 'twitchCount':
+      //   return {
+      //     ...prevState,
+      //     twitchCount: payload.twitchCount,
+      //   };
+      case 'twitchFollowers':
         return {
           ...prevState,
-          twitchCount: payload.twitchCount,
+          twitchFollowers: payload.twitchFollowers,
         };
       case 'youtubeCount':
         return {
@@ -41,7 +46,8 @@ function About() {
 
   const [state, dispatch] = useReducer(Reducer, {
     twitterCount: 0,
-    twitchCount: 0,
+    // twitchCount: 0,
+    twitchFollowers: 0,
     youtubeCount: 0,
     instagramCount: 0,
   });
@@ -64,6 +70,9 @@ function About() {
         } else if (maxVal > 99999 && sourceVal < maxVal) {
           sourceVal += 81;
           dataSetter(source, sourceVal);
+        } else if (maxVal > 50000 && sourceVal < maxVal) {
+          sourceVal += 41;
+          dataSetter(source, sourceVal);
         } else if (maxVal > 9999 && sourceVal < maxVal) {
           sourceVal += 13;
           dataSetter(source, sourceVal);
@@ -82,7 +91,7 @@ function About() {
   useEffect(() => {
     if (
       state.twitterCount === 0 &&
-      state.twitchCount === 0 &&
+      state.twitchFollowers === 0 &&
       state.youtubeCount === 0
     ) {
       incrementVals(
@@ -92,9 +101,9 @@ function About() {
       );
 
       incrementVals(
-        'twitchCount',
-        state.twitchCount,
-        twitchData.data[0].view_count
+        'twitchFollowers',
+        state.twitchFollowers,
+        twitchFollowers.total
       );
 
       incrementVals(
@@ -113,10 +122,12 @@ function About() {
     incrementVals,
     instagramStats.graphql.user.edge_followed_by.count,
     state.instagramCount,
-    state.twitchCount,
+    state.twitchFollowers,
     state.twitterCount,
     state.youtubeCount,
     twitchData.data,
+    twitchFollowers.data.total,
+    twitchFollowers.total,
     twitterData.followers_count,
     youtubeSubscribers.statistics.subscriberCount,
   ]);
@@ -144,70 +155,56 @@ function About() {
 
   return (
     <>
-      <Animated
-        animationIn='fadeIn'
-        animationOut='fadeOut'
-        animationInDelay={1300}
-        animationOutDelay={800}
-        isVisible={true}
-      >
-        <div className='Data'>
-          <ul>
-            <li className='Twitter'>
-              <i className='fab fa-twitter'></i>
-              <div className='group'>
-                <h5>{twitterData.screen_name}</h5>
-                <span className='Count'>{formatCount(state.twitterCount)}</span>
-                <span className='description'>followers</span>
-              </div>
-              <button type='button'>
-                <a href='https://twitter.com/TTrebb' target='blank_'>
-                  follow
-                </a>
-              </button>
-            </li>
-            <li className='Twitch'>
-              <i className='fab fa-twitch'></i>
-              <h5>{twitchData.data[0].display_name}</h5>
-              <span className='Count'>{formatCount(state.twitchCount)}</span>
-              <span className='description'>views</span>
-              <button type='button'>
-                <a href='https://www.twitch.tv/rogue/' target='blank_'>
-                  subscribe
-                </a>
-              </button>
-            </li>
-            <li className='Youtube'>
-              <i className='fab fa-youtube'></i>
-              <h5>Rogue</h5>
-              <span className='Count'>{formatCount(state.youtubeCount)}</span>
-              <span className='description'>subscribers</span>
-              <button type='button'>
-                <a
-                  href='https://www.youtube.com/channel/UCo1ij-x1EG4hLXc_YY6snoQ'
-                  target='blank_'
-                >
-                  subscribe
-                </a>
-              </button>
-            </li>
-            <li className='Instagram'>
-              <i className='fab fa-instagram'></i>
-              <h5>TwitchRogue</h5>
-              <span className='Count'>{formatCount(state.instagramCount)}</span>
+      <div className='Data'>
+        <ul>
+          <li className='Twitter'>
+            <i className='fab fa-twitter'></i>
+            <div className='group'>
+              <h5>{twitterData.screen_name}</h5>
+              <span className='Count'>{formatCount(state.twitterCount)}</span>
               <span className='description'>followers</span>
-              <button type='button'>
-                <a
-                  href='https://www.instagram.com/twitchrogue/'
-                  target='blank_'
-                >
-                  follow
-                </a>
-              </button>
-            </li>
-          </ul>
-        </div>
-      </Animated>
+            </div>
+            <button type='button'>
+              <a href='https://twitter.com/TTrebb' target='blank_'>
+                follow
+              </a>
+            </button>
+          </li>
+          <li className='Twitch'>
+            <i className='fab fa-twitch'></i>
+            <h5>{twitchData.data[0].display_name}</h5>
+            <span className='Count'>{formatCount(state.twitchFollowers)}</span>
+            <span className='description'>followers</span>
+            <button type='button'>
+              <a href='https://www.twitch.tv/rogue/' target='blank_'>
+                subscribe
+              </a>
+            </button>
+          </li>
+          <li className='Youtube'>
+            <i className='fab fa-youtube'></i>
+            <h5>Rogueyy</h5>
+            <span className='Count'>{formatCount(state.youtubeCount)}</span>
+            <span className='description'>subscribers</span>
+            <button type='button'>
+              <a href='https://www.youtube.com/c/Rogueyy' target='blank_'>
+                subscribe
+              </a>
+            </button>
+          </li>
+          <li className='Instagram'>
+            <i className='fab fa-instagram'></i>
+            <h5>TwitchRogue</h5>
+            <span className='Count'>{formatCount(state.instagramCount)}</span>
+            <span className='description'>followers</span>
+            <button type='button'>
+              <a href='https://www.instagram.com/twitchrogue/' target='blank_'>
+                follow
+              </a>
+            </button>
+          </li>
+        </ul>
+      </div>
     </>
   );
 }
