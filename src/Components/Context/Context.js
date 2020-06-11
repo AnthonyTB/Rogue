@@ -11,11 +11,6 @@ export function ContextProvider(props) {
           ...prevState,
           twitterData: payload.twitterData,
         };
-      case 'twitchData':
-        return {
-          ...prevState,
-          twitchData: payload.twitchData,
-        };
       case 'twitchStream':
         return {
           ...prevState,
@@ -49,7 +44,6 @@ export function ContextProvider(props) {
 
   const [state, dispatch] = useReducer(Reducer, {
     twitterData: null,
-    twitchData: null,
     twitchVod: null,
     twitchFollowers: null,
     twitchStream: null,
@@ -70,10 +64,6 @@ export function ContextProvider(props) {
     const fetchTwitter = async () => {
       const twitterResponse = await Data.fetchTwitterData();
       dataSetter('twitterData', twitterResponse);
-    };
-    const fetchTwitch = async () => {
-      const twitchResponse = await Data.fetchTwitchData();
-      dataSetter('twitchData', twitchResponse);
     };
     const fetchTwitchStream = async () => {
       const twitchResponse = await Data.fetchTwitchStream();
@@ -96,7 +86,6 @@ export function ContextProvider(props) {
       dataSetter('instagramStats', instagramResponse);
     };
     fetchTwitter();
-    fetchTwitch();
     fetchTwitchStream();
     fetchTwitchVod();
     fetchTwitchFollowers();
@@ -107,7 +96,6 @@ export function ContextProvider(props) {
   const value = {
     dispatch,
     twitterData: state.twitterData,
-    twitchData: state.twitchData,
     twitchStream: state.twitchStream,
     twitchVod: state.twitchVod,
     twitchFollowers: state.twitchFollowers,

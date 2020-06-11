@@ -6,7 +6,6 @@ import { Reducer } from '../interfaces/interfaces';
 function About() {
   const {
     twitterData,
-    twitchData,
     twitchFollowers,
     youtubeSubscribers,
     instagramStats,
@@ -19,11 +18,6 @@ function About() {
           ...prevState,
           twitterCount: payload.twitterCount,
         };
-      // case 'twitchCount':
-      //   return {
-      //     ...prevState,
-      //     twitchCount: payload.twitchCount,
-      //   };
       case 'twitchFollowers':
         return {
           ...prevState,
@@ -46,7 +40,6 @@ function About() {
 
   const [state, dispatch] = useReducer(Reducer, {
     twitterCount: 0,
-    // twitchCount: 0,
     twitchFollowers: 0,
     youtubeCount: 0,
     instagramCount: 0,
@@ -125,7 +118,6 @@ function About() {
     state.twitchFollowers,
     state.twitterCount,
     state.youtubeCount,
-    twitchData.data,
     twitchFollowers.data.total,
     twitchFollowers.total,
     twitterData.followers_count,
@@ -172,7 +164,7 @@ function About() {
           </li>
           <li className='Twitch'>
             <i className='fab fa-twitch'></i>
-            <h5>{twitchData.data[0].display_name}</h5>
+            <h5>Rogue</h5>
             <span className='Count'>{formatCount(state.twitchFollowers)}</span>
             <span className='description'>followers</span>
             <button type='button'>

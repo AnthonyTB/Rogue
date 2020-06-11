@@ -24,22 +24,12 @@ const Data = {
         : res.json().then((response) => response.items[0])
     );
   },
-  fetchTwitchData() {
-    return fetch(`${config.TwitchEndpoint}`, {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-        Authorization: `Bearer ${config.TwitchToken}`,
-      },
-    }).then((res) =>
-      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
-    );
-  },
   fetchTwitchStream() {
     return fetch(`${config.TwitchStreamEndpoint}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
+        'Client-ID': '0kecjpe20pt63ts9he0gnlhdb8h8ey',
         Authorization: `Bearer ${config.TwitchToken}`,
       },
     }).then((res) =>
@@ -52,6 +42,7 @@ const Data = {
       headers: {
         'content-type': 'application/json',
         'Client-ID': '0kecjpe20pt63ts9he0gnlhdb8h8ey',
+        Authorization: `Bearer ${config.TwitchToken}`,
       },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
@@ -63,6 +54,7 @@ const Data = {
       headers: {
         'content-type': 'application/json',
         'Client-ID': '0kecjpe20pt63ts9he0gnlhdb8h8ey',
+        Authorization: `Bearer ${config.TwitchToken}`,
       },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()

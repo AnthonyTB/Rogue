@@ -11,7 +11,7 @@ function Content() {
       <div className='Twitch-Container'>
         <iframe
           title="Rogue's Live Stream"
-          src={`https://player.twitch.tv/?channel=rogue&muted=true&autoplay=true`}
+          src={`https://player.twitch.tv/?channel=rogue&parent=rogue.now.sh&parent=rogue.live&muted=true&autoplay=true`}
           allowFullScreen={true}
           frameBorder='0'
           scrolling='no'
@@ -27,7 +27,7 @@ function Content() {
       <div className='Twitch-Container'>
         <iframe
           title="Rogue's Live Stream"
-          src={`https://player.twitch.tv/?video=v${twitchVod.data[0].id}&muted=true&autoplay=true`}
+          src={`https://player.twitch.tv/?video=v${twitchVod.data[0].id}&parent=rogue.now.sh&parent=rogue.live&muted=true&autoplay=true`}
           allowFullScreen={true}
           frameBorder='0'
           scrolling='no'

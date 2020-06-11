@@ -13,7 +13,6 @@ function App() {
   const {
     twitchStream,
     youtubeSubscribers,
-    twitchData,
     twitterData,
     instagramStats,
   } = useContext(Context);
@@ -119,11 +118,7 @@ function App() {
 
   return (
     <div className='App'>
-      {twitchStream &&
-      twitchData &&
-      twitterData &&
-      youtubeSubscribers &&
-      instagramStats
+      {twitchStream && twitterData && youtubeSubscribers && instagramStats
         ? renderApp()
         : renderLoader()}
     </div>
