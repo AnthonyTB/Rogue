@@ -29,7 +29,7 @@ const Data = {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'Client-ID': '0kecjpe20pt63ts9he0gnlhdb8h8ey',
+        'Client-ID': 'miqpryw3ejg6xvadet2m89ahzucab2',
         Authorization: `Bearer ${config.TwitchToken}`,
       },
     }).then((res) =>
@@ -41,7 +41,7 @@ const Data = {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'Client-ID': '0kecjpe20pt63ts9he0gnlhdb8h8ey',
+        'Client-ID': 'miqpryw3ejg6xvadet2m89ahzucab2',
         Authorization: `Bearer ${config.TwitchToken}`,
       },
     }).then((res) =>
@@ -53,7 +53,7 @@ const Data = {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'Client-ID': '0kecjpe20pt63ts9he0gnlhdb8h8ey',
+        'Client-ID': 'miqpryw3ejg6xvadet2m89ahzucab2',
         Authorization: `Bearer ${config.TwitchToken}`,
       },
     }).then((res) =>
