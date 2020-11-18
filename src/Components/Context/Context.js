@@ -80,7 +80,9 @@ export function ContextProvider(props) {
     const fetchYoutube = async () => {
       const youtubeResponse = await Data.fetchYoutubeSubs();
       dataSetter('youtubeSubscribers', youtubeResponse);
+      console.log(youtubeResponse);
     };
+
     const fetchInstagram = async () => {
       const instagramResponse = await Data.fetchInstagramData();
       dataSetter('instagramStats', instagramResponse);
