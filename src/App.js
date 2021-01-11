@@ -14,7 +14,7 @@ function App() {
     twitchStream,
     youtubeSubscribers,
     twitterData,
-    instagramStats,
+    // instagramStats,
   } = useContext(Context);
 
   const override = css`
@@ -118,7 +118,7 @@ function App() {
 
   return (
     <div className='App'>
-      {twitchStream && twitterData && youtubeSubscribers && instagramStats
+      {twitchStream && twitterData && youtubeSubscribers
         ? renderApp()
         : renderLoader()}
     </div>

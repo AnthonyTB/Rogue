@@ -15,7 +15,7 @@
     "react-animated-css": "^1.2.1",
     "react-dom": "^16.13.1",
     "react-particles-js": "^3.0.3",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.4",
     "react-spinners": "^0.8.1",
     "typescript": "^3.8.3"
   },

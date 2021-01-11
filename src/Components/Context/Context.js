@@ -32,11 +32,11 @@ export function ContextProvider(props) {
           youtubeSubscribers: payload.youtubeSubscribers,
         };
 
-      case 'instagramStats':
-        return {
-          ...prevState,
-          instagramStats: payload.instagramStats,
-        };
+      // case 'instagramStats':
+      //   return {
+      //     ...prevState,
+      //     instagramStats: payload.instagramStats,
+      //   };
       default:
         return '';
     }
@@ -48,7 +48,7 @@ export function ContextProvider(props) {
     twitchFollowers: null,
     twitchStream: null,
     youtubeSubscribers: null,
-    instagramStats: null,
+    // instagramStats: null,
   });
 
   const dataSetter = (section, data) => {
@@ -83,16 +83,16 @@ export function ContextProvider(props) {
       console.log(youtubeResponse);
     };
 
-    const fetchInstagram = async () => {
-      const instagramResponse = await Data.fetchInstagramData();
-      dataSetter('instagramStats', instagramResponse);
-    };
+    // const fetchInstagram = async () => {
+    //   const instagramResponse = await Data.fetchInstagramData();
+    //   dataSetter('instagramStats', instagramResponse);
+    // };
     fetchTwitter();
     fetchTwitchStream();
     fetchTwitchVod();
     fetchTwitchFollowers();
     fetchYoutube();
-    fetchInstagram();
+    // fetchInstagram();
   }, []);
 
   const value = {
@@ -103,7 +103,7 @@ export function ContextProvider(props) {
     twitchFollowers: state.twitchFollowers,
     youtubeSubscribers: state.youtubeSubscribers,
     youtubeUpload: state.youtubeUpload,
-    instagramStats: state.instagramStats,
+    // instagramStats: state.instagramStats,
   };
 
   return <Context.Provider value={value}>{props.children}</Context.Provider>;

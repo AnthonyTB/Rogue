@@ -1,17 +1,18 @@
 import React, { useContext, useEffect, useReducer, useCallback } from 'react';
 import './About.css';
 import { Context } from '../Context/Context';
-import { Reducer } from '../interfaces/interfaces';
+import { ISocialCard, IReducer } from '../../interfaces';
+import SocialCard from './SocialCard';
 
 function About() {
   const {
     twitterData,
     twitchFollowers,
     youtubeSubscribers,
-    instagramStats,
+    // instagramStats,
   } = useContext(Context);
 
-  const Reducer = (prevState: any, { type, payload }: Reducer) => {
+  const Reducer = (prevState: any, { type, payload }: IReducer) => {
     switch (type) {
       case 'twitterCount':
         return {
@@ -28,11 +29,11 @@ function About() {
           ...prevState,
           youtubeCount: payload.youtubeCount,
         };
-      case 'instagramCount':
-        return {
-          ...prevState,
-          instagramCount: payload.instagramCount,
-        };
+      // case 'instagramCount':
+      //   return {
+      //     ...prevState,
+      //     instagramCount: payload.instagramCount,
+      //   };
       default:
         return '';
     }
@@ -42,7 +43,7 @@ function About() {
     twitterCount: 0,
     twitchFollowers: 0,
     youtubeCount: 0,
-    instagramCount: 0,
+    // instagramCount: 0,
   });
 
   const dataSetter = (section: string, data: number) => {
@@ -105,16 +106,16 @@ function About() {
         youtubeSubscribers.statistics.subscriberCount
       );
 
-      incrementVals(
-        'instagramCount',
-        state.instagramCount,
-        instagramStats.graphql.user.edge_followed_by.count
-      );
+      // incrementVals(
+      //   'instagramCount',
+      //   state.instagramCount,
+      //   instagramStats.graphql.user.edge_followed_by.count
+      // );
     }
   }, [
     incrementVals,
-    instagramStats.graphql.user.edge_followed_by.count,
-    state.instagramCount,
+    // instagramStats.graphql.user.edge_followed_by.count,
+    // state.instagramCount,
     state.twitchFollowers,
     state.twitterCount,
     state.youtubeCount,
@@ -145,56 +146,41 @@ function About() {
     }
   };
 
+  const CardList: ISocialCard[] = [
+    {
+      Title: "Twitter",
+      Link: 'https://twitter.com/TTrebb',
+      IconClassname: 'fab fa-twitter',
+      Username: twitterData.screen_name,
+      Count: formatCount(state.twitterCount),
+      SubLabel: 'followers',
+      ButtonLabel: 'follow'
+    },
+    {
+      Title: "Twitch",
+      Link: 'https://www.twitch.tv/rogue/',
+      IconClassname: 'fab fa-twitch',
+      Username: 'Rogue',
+      Count: formatCount(state.twitchFollowers),
+      SubLabel: 'followers',
+      ButtonLabel: 'subscribe'
+    },
+    {
+      Title: "Youtube",
+      Link: 'https://www.youtube.com/c/Rogueyy',
+      IconClassname: 'fab fa-youtube',
+      Username: 'Rogueyy',
+      Count: formatCount(state.youtubeCount),
+      SubLabel: 'subscribers',
+      ButtonLabel: 'subscribe'
+    }
+  ]
+
   return (
     <>
       <div className='Data'>
         <ul>
-          <li className='Twitter'>
-            <i className='fab fa-twitter'></i>
-            <div className='group'>
-              <h5>{twitterData.screen_name}</h5>
-              <span className='Count'>{formatCount(state.twitterCount)}</span>
-              <span className='description'>followers</span>
-            </div>
-            <button type='button'>
-              <a href='https://twitter.com/TTrebb' target='blank_'>
-                follow
-              </a>
-            </button>
-          </li>
-          <li className='Twitch'>
-            <i className='fab fa-twitch'></i>
-            <h5>Rogue</h5>
-            <span className='Count'>{formatCount(state.twitchFollowers)}</span>
-            <span className='description'>followers</span>
-            <button type='button'>
-              <a href='https://www.twitch.tv/rogue/' target='blank_'>
-                subscribe
-              </a>
-            </button>
-          </li>
-          <li className='Youtube'>
-            <i className='fab fa-youtube'></i>
-            <h5>Rogueyy</h5>
-            <span className='Count'>{formatCount(state.youtubeCount)}</span>
-            <span className='description'>subscribers</span>
-            <button type='button'>
-              <a href='https://www.youtube.com/c/Rogueyy' target='blank_'>
-                subscribe
-              </a>
-            </button>
-          </li>
-          <li className='Instagram'>
-            <i className='fab fa-instagram'></i>
-            <h5>TwitchRogue</h5>
-            <span className='Count'>{formatCount(state.instagramCount)}</span>
-            <span className='description'>followers</span>
-            <button type='button'>
-              <a href='https://www.instagram.com/twitchrogue/' target='blank_'>
-                follow
-              </a>
-            </button>
-          </li>
+          {CardList.map((Card: ISocialCard) => <SocialCard {...Card} />)}
         </ul>
       </div>
     </>
