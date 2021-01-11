@@ -27,7 +27,7 @@ function Content() {
       <div className="Twitch-Container">
         <iframe
           title="Rogue's Live Stream"
-          src={`https://player.twitch.tv/?video=v${twitchVod.data[0].id}&parent=rogue.now.sh&parent=rogue.live&muted=true&autoplay=true`}
+          src={`https://player.twitch.tv/?video=v${twitchVod.data[0].id}&parent=rogue.vercel.app&parent=${process.env.REACT_APP_VERCEL_URL}&muted=true&autoplay=true`}
           allowFullScreen={true}
           frameBorder="0"
           scrolling="no"
